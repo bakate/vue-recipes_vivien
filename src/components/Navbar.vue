@@ -9,6 +9,9 @@
         <router-link class="navbar-item" :to="{ name: 'stepper' }">
           Stepper
         </router-link>
+        <router-link class="navbar-item" :to="{ name: 'anotherStepper' }">
+          Another Stepper
+        </router-link>
       </div>
 
       <div class="navbar-end">

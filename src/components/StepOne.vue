@@ -3,7 +3,7 @@
     <BaseInput
       label="Company Name :"
       v-model="company_name"
-      :class="[$v.company_name.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.company_name.$error }"
       @input="$v.company_name.$touch()"
       @blur="$v.company_name.$touch()"
       placeholder="Pick a company_name"
@@ -19,7 +19,7 @@
     <BaseInput
       label="Company Id :"
       v-model="company_id"
-      :class="[$v.company_id.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.company_id.$error }"
       @input="$v.company_id.$touch()"
       @blur="$v.company_id.$touch()"
       placeholder="Your company id"
@@ -32,7 +32,7 @@
     <BaseInput
       label="Email :"
       v-model="email"
-      :class="[$v.email.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.email.$error }"
       @input="$v.email.$touch()"
       @blur="$v.email.$touch()"
       placeholder="Pick an email"
@@ -75,34 +75,34 @@ export default {
       required,
     },
   },
-  watch: {
-    $v: {
-      handler: function (val) {
-        if (!val.$invalid) {
-          this.$emit('can-continue', { value: true })
-        } else {
-          this.$emit('can-continue', { value: false })
-          setTimeout(() => {
-            this.$emit('change-next', { nextBtnValue: false })
-          }, 3000)
-        }
-      },
-      deep: true,
-    },
+  // watch: {
+  //   $v: {
+  //     handler: function (val) {
+  //       if (!val.$invalid) {
+  //         this.$emit('can-continue', { value: true })
+  //       } else {
+  //         this.$emit('can-continue', { value: false })
+  //         setTimeout(() => {
+  //           this.$emit('change-next', { nextBtnValue: false })
+  //         }, 3000)
+  //       }
+  //     },
+  //     deep: true,
+  //   },
 
-    clickedNext(val) {
-      console.log(val)
-      if (val === true) {
-        this.$v.$touch()
-      }
-    },
-  },
-  mounted() {
-    if (!this.$v.$invalid) {
-      this.$emit('can-continue', { value: true })
-    } else {
-      this.$emit('can-continue', { value: false })
-    }
-  },
+  //   clickedNext(val) {
+  //     console.log(val)
+  //     if (val === true) {
+  //       this.$v.$touch()
+  //     }
+  //   },
+  // },
+  // mounted() {
+  //   if (!this.$v.$invalid) {
+  //     this.$emit('can-continue', { value: true })
+  //   } else {
+  //     this.$emit('can-continue', { value: false })
+  //   }
+  // },
 }
 </script>

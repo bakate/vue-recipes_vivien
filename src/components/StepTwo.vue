@@ -1,9 +1,9 @@
 <template>
-  <div style="padding: 2rem 3rem; text-align: left;">
+  <section>
     <BaseInput
       label="Campaign Name :"
       v-model="form.campaign_name"
-      :class="[$v.form.campaign_name.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.form.campaign_name.$error }"
       @input="$v.form.campaign_name.$touch()"
       @blur="$v.form.campaign_name.$touch()"
       placeholder="Pick your campaign name"
@@ -18,9 +18,8 @@
     </template>
     <BaseInput
       label="Budget in € :"
-      type="number"
       v-model.number="form.campaign_budget"
-      :class="[$v.form.campaign_budget.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.form.campaign_budget.$error }"
       @input="$v.form.campaign_budget.$touch()"
       @blur="$v.form.campaign_budget.$touch()"
       placeholder="Your Budget"
@@ -33,7 +32,7 @@
     <BaseInput
       label="Campaign Objective :"
       v-model="form.campaign_objective"
-      :class="[$v.form.campaign_objective.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.form.campaign_objective.$error }"
       @input="$v.form.campaign_objective.$touch()"
       @blur="$v.form.campaign_objective.$touch()"
       placeholder="Pick your campaign objective"
@@ -43,7 +42,7 @@
         campaign_objective is required.
       </p>
     </template>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -76,35 +75,6 @@ export default {
         required,
       },
     },
-  },
-  watch: {
-    $v: {
-      handler: function (val) {
-        if (!val.$invalid) {
-          this.$emit('can-continue', { value: true })
-        } else {
-          this.$emit('can-continue', { value: false })
-          setTimeout(() => {
-            this.$emit('change-next', { nextBtnValue: false })
-          }, 3000)
-        }
-      },
-      deep: true,
-    },
-
-    clickedNext(val) {
-      console.log(val)
-      if (val === true) {
-        this.$v.form.$touch()
-      }
-    },
-  },
-  mounted() {
-    if (!this.$v.$invalid) {
-      this.$emit('can-continue', { value: true })
-    } else {
-      this.$emit('can-continue', { value: false })
-    }
   },
 }
 </script>

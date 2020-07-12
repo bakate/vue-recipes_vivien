@@ -16,6 +16,12 @@ const routes = [
 
     component: () => import(/* webpackChunkName: "stepper" */ '../views/Stepper.vue'),
   },
+  {
+    path: '/anotherStepper',
+    name: 'anotherStepper',
+
+    component: () => import(/* webpackChunkName: "anotherStepper" */ '../views/AnotherStepper.vue'),
+  },
 ]
 
 const router = new VueRouter({
