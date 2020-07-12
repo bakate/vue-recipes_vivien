@@ -4,7 +4,7 @@ export default {
 }
 </script>
 <template>
-  <button class="button is-primary" v-on="$listeners" v-bind="$attrs">
+  <b-button type="is-primary" v-on="$listeners" v-bind="$attrs">
     <slot>SUBMIT</slot>
-  </button>
+  </b-button>
 </template>

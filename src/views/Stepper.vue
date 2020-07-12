@@ -1,11 +1,9 @@
 <template>
   <div>
-    <!--Example Elements-->
-
     <section class="section" style="padding-top: 0.5rem;">
       <div class="container">
         <div class="columns">
-          <div class="column is-10 is-offset-2">
+          <div class="column">
             <horizontal-stepper
               :steps="deepreach"
               @completed-step="completeStep"

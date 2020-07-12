@@ -3,7 +3,7 @@
     <BaseInput
       label="Facebook Account Id :"
       v-model="facebook_account_id"
-      :class="[$v.facebook_account_id.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.facebook_account_id.$error }"
       @input="$v.facebook_account_id.$touch()"
       @blur="$v.facebook_account_id.$touch()"
       placeholder="Pick your facebook account id"
@@ -19,7 +19,7 @@
     <BaseInput
       label="Facebook Page id :"
       v-model="facebook_page_id"
-      :class="[$v.facebook_page_id.$error ? 'is-danger' : '']"
+      :class="{ 'is-danger': $v.facebook_page_id.$error }"
       @input="$v.facebook_page_id.$touch()"
       @blur="$v.facebook_page_id.$touch()"
       placeholder="Pick your Facebook Page id"
@@ -35,7 +35,7 @@
     <BaseInput
       label="Ad Title :"
       v-model="ad_title"
-      :class="[$v.ad_title.$error ? 'is-danger' : '']"
+      :type="{ 'is-danger': $v.ad_title.$error }"
       @input="$v.ad_title.$touch()"
       @blur="$v.ad_title.$touch()"
       placeholder="Ad Title"
@@ -46,21 +46,21 @@
       </p>
     </template>
 
-    <div class="field">
-      <label class="label">Ad Message</label>
-      <div class="control">
-        <textarea
-          :class="['textarea', $v.ad_message.$error ? 'is-danger' : '']"
-          placeholder="Textarea"
-          v-model="ad_message"
-        ></textarea>
-      </div>
-    </div>
+    <BaseInput
+      label="Ad Message"
+      :type="{ 'is-danger': $v.ad_message.$error }"
+      inputType="textarea"
+      maxlength="200"
+      placeholder="Textarea"
+      v-model="ad_message"
+      @input="$v.ad_message.$touch()"
+      @blur="$v.ad_message.$touch()"
+    ></BaseInput>
   </div>
 </template>
 
 <script>
-import { required, integer, minLength } from 'vuelidate/lib/validators'
+import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
   props: ['currentStep'],
@@ -81,7 +81,6 @@ export default {
     },
     ad_title: {
       required,
-      integer,
     },
     facebook_page_id: {
       required,
@@ -90,36 +89,6 @@ export default {
     ad_message: {
       required,
     },
-  },
-  // watch: {
-  //   $v: {
-  //     handler: function (val) {
-  //       if (!val.$invalid) {
-  //         this.$emit('can-continue', { value: true })
-  //       } else {
-  //         this.$emit('can-continue', { value: false })
-  //         setTimeout(() => {
-  //           this.$emit('change-next', { nextBtnValue: false })
-  //         }, 3000)
-  //       }
-  //     },
-  //     deep: true,
-  //   },
-
-  //   clickedNext(val) {
-  //     console.log(val)
-  //     if (val === true) {
-  //       this.$v.$touch()
-  //     }
-  //   },
-  // },
-  methods: {
-    canContinue() {
-      this.$emit('can-continue', { value: true })
-    },
-  },
-  mounted() {
-    this.$emit('can-continue', { value: true })
   },
 }
 </script>

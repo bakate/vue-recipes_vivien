@@ -1,19 +1,14 @@
 <template>
-  <div class="field">
-    <label class="label" v-if="label">{{ label }}</label>
-    <div class="control">
-      <input
-        class="input"
-        v-bind="$attrs"
-        :value="value"
-        type="type"
-        v-on="{
-          ...$listeners,
-          input: (event) => $emit('input', event.target.value),
-        }"
-      />
-    </div>
-  </div>
+  <b-field :label="label" v-bind="$attrs">
+    <b-input
+      :value="value"
+      :type="inputType"
+      v-on="{
+        ...$listeners,
+        input: (event) => $emit('input', event),
+      }"
+    ></b-input>
+  </b-field>
 </template>
 
 <script>
@@ -23,7 +18,7 @@ export default {
     value: {
       type: [String, Number],
     },
-    type: {
+    inputType: {
       type: String,
       default: 'text',
     },
