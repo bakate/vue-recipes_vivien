@@ -90,5 +90,14 @@ export default {
       required,
     },
   },
+
+  methods: {
+    canContinue() {
+      this.$emit('can-continue', { value: true })
+    },
+  },
+  mounted() {
+    this.$emit('can-continue', { value: true })
+  },
 }
 </script>

@@ -75,34 +75,34 @@ export default {
       required,
     },
   },
-  // watch: {
-  //   $v: {
-  //     handler: function (val) {
-  //       if (!val.$invalid) {
-  //         this.$emit('can-continue', { value: true })
-  //       } else {
-  //         this.$emit('can-continue', { value: false })
-  //         setTimeout(() => {
-  //           this.$emit('change-next', { nextBtnValue: false })
-  //         }, 3000)
-  //       }
-  //     },
-  //     deep: true,
-  //   },
+  watch: {
+    $v: {
+      handler: function (val) {
+        if (!val.$invalid) {
+          this.$emit('can-continue', { value: true })
+        } else {
+          this.$emit('can-continue', { value: false })
+          setTimeout(() => {
+            this.$emit('change-next', { nextBtnValue: false })
+          }, 3000)
+        }
+      },
+      deep: true,
+    },
 
-  //   clickedNext(val) {
-  //     console.log(val)
-  //     if (val === true) {
-  //       this.$v.$touch()
-  //     }
-  //   },
-  // },
-  // mounted() {
-  //   if (!this.$v.$invalid) {
-  //     this.$emit('can-continue', { value: true })
-  //   } else {
-  //     this.$emit('can-continue', { value: false })
-  //   }
-  // },
+    clickedNext(val) {
+      console.log(val)
+      if (val === true) {
+        this.$v.$touch()
+      }
+    },
+  },
+  mounted() {
+    if (!this.$v.$invalid) {
+      this.$emit('can-continue', { value: true })
+    } else {
+      this.$emit('can-continue', { value: false })
+    }
+  },
 }
 </script>
