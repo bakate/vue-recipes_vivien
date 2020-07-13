@@ -11,12 +11,6 @@ const routes = [
     component: Home,
   },
   {
-    path: '/stepper',
-    name: 'stepper',
-
-    component: () => import(/* webpackChunkName: "stepper" */ '../views/Stepper.vue'),
-  },
-  {
     path: '/anotherStepper',
     name: 'anotherStepper',
 

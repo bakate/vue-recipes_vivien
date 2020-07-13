@@ -5,10 +5,6 @@
         <router-link class="navbar-item" :to="{ name: 'home' }">
           Home
         </router-link>
-
-        <router-link class="navbar-item" :to="{ name: 'stepper' }">
-          Stepper
-        </router-link>
         <router-link class="navbar-item" :to="{ name: 'anotherStepper' }">
           Another Stepper
         </router-link>
