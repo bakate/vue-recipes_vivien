@@ -1,29 +1,27 @@
 <template>
-  <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-    <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <router-link class="navbar-item" :to="{ name: 'home' }">
-          Home
-        </router-link>
-        <router-link class="navbar-item" :to="{ name: 'anotherStepper' }">
-          Another Stepper
-        </router-link>
-      </div>
+  <b-navbar>
+    <template slot="start">
+      <b-navbar-item tag="router-link" :to="{ name: 'home' }">
+        Home
+      </b-navbar-item>
+      <b-navbar-item tag="router-link" :to="{ name: 'anotherStepper' }">
+        Another Stepper
+      </b-navbar-item>
+    </template>
 
-      <div class="navbar-end">
-        <div class="navbar-item">
-          <div class="buttons">
-            <a class="button is-primary">
-              <strong>Sign up</strong>
-            </a>
-            <a class="button is-light">
-              Log in
-            </a>
-          </div>
+    <template slot="end">
+      <b-navbar-item tag="div">
+        <div class="buttons">
+          <a class="button is-primary">
+            <strong>Sign up</strong>
+          </a>
+          <a class="button is-light">
+            Log in
+          </a>
         </div>
-      </div>
-    </div>
-  </nav>
+      </b-navbar-item>
+    </template>
+  </b-navbar>
 </template>
 
 <script>
