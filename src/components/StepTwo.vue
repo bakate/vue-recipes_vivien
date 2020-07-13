@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="padding: 1rem 2rem;">
     <BaseInput
       label="Campaign Name :"
       v-model="form.campaign_name"

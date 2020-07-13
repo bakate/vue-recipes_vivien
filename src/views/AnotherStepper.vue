@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <div class="container">
     <b-steps
       v-model="activeStep"
       animated
@@ -25,7 +25,7 @@
         <StepThree />
       </b-step-item>
     </b-steps>
-  </section>
+  </div>
 </template>
 
 <script>

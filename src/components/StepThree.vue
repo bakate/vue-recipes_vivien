@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 2rem 3rem; text-align: left;">
+  <section style="padding: 1rem 2rem;">
     <BaseInput
       label="Facebook Account Id :"
       v-model="facebook_account_id"
@@ -56,7 +56,7 @@
       @input="$v.ad_message.$touch()"
       @blur="$v.ad_message.$touch()"
     ></BaseInput>
-  </div>
+  </section>
 </template>
 
 <script>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <section class="section" style="padding-top: 0.5rem;">
-      <div class="container">
+      <div class="container pl-3">
         <div class="columns">
           <div class="column">
             <horizontal-stepper

@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 2rem 3rem; text-align: left;">
+  <section style="padding: 1rem 2rem;">
     <BaseInput
       label="Company Name :"
       v-model="company_name"
@@ -45,7 +45,7 @@
         Provide a valid email
       </p>
     </template>
-  </div>
+  </section>
 </template>
 
 <script>
